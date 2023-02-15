@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Dokternak" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Dokternak" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/colorDarkBlue900</item>
+        <item name="colorPrimaryVariant">@color/colorDarkBlue900</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +12,80 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/jakarta_sans</item>
     </style>
+
+    <style name="DokternakTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/jakarta_sans</item>
+    </style>
+
+    <style name="DokternakTextStyle.SemiBold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/jakarta_sans_semibold</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/jakarta_sans_bold</item>
+    </style>
+
+    <style name="DokternakTextStyle.Header3">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold.Header3">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold.Header2">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold.Header2.DarkBlue">
+        <item name="android:textColor">@color/colorDarkBlue900</item>
+    </style>
+
+    <style name="DokternakTextStyle.Header3.Grey">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold.Header3.Grey">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorGreyDivider</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold.Header3.DarkBlue">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorDarkBlue900</item>
+    </style>
+
+    <style name="DokternakTextStyle.Body3">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.Body2">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.SemiBold.Body2">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.Bold.Body2">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DokternakTextStyle.SemiBold.Body2.DarkBlue">
+        <item name="android:textColor">@color/colorDarkBlue900</item>
+    </style>
+
+    <style name="DokternakTextStyle.Body3.Canary70">
+        <item name="android:textColor">@color/colorCanary70</item>
+    </style>
+
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_action_home"
+        android:iconTint="@color/colorDarkBlue900"
+        android:title="@string/menu_home" />
+
+    <item android:id="@+id/artikel"
+        android:icon="@drawable/ic_artikel"
+        android:iconTint="@color/colorDarkBlue900"
+        android:title="@string/menu_article" />
+
+    <item android:id="@+id/petugas"
+        android:icon="@drawable/ic_doctor"
+        android:iconTint="@color/colorDarkBlue900"
+        android:title="@string/menu_officer" />
+
+    <item android:id="@+id/puskeswan"
+        android:icon="@drawable/ic_puskeswan"
+        android:iconTint="@color/colorDarkBlue900"
+        android:title="@string/menu_puskeswan" />
+
+    <item android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:iconTint="@color/colorDarkBlue900"
+        android:title="@string/menu_profile" />
+
+</menu>

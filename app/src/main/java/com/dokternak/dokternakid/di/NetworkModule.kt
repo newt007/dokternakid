@@ -1,6 +1,7 @@
 package com.dokternak.dokternakid.di
 
 import com.dokternak.dokternakid.data.lib.HeaderInterceptor
+import com.dokternak.dokternakid.data.membership.remote.MembershipService
 import com.dokternak.dokternakid.utils.PreferenceManager
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit
 /** don't forget to change it to base url form BuildConfig
  * const val baseUrl = BuildConfig.BASE_URL
  * **/
-const val baseUrl = ""
+const val baseUrl = "https://www.dokternak.id/api/"
 
 val networkModule = module {
 
@@ -34,12 +35,7 @@ val networkModule = module {
             .build()
     }
 
-    /**
-     * declare a singleton object for retrofit service
-     *
-     * single { provideAuthService(get()) }
-     *
-     **/
+    single { provideMembershipService(get()) }
 
 }
 
@@ -51,9 +47,5 @@ private fun getHeaderInterceptor(preferenceManager: PreferenceManager): Intercep
     return HeaderInterceptor(headers, preferenceManager)
 }
 
-    /**
-     * example to create retrofit service in order to declare a singleton object
-     *
-     * fun provideAuthService(retrofit: Retrofit): AuthService = retrofit.create(AuthService::class.java)
-     *
-    * **/
+fun provideMembershipService(retrofit: Retrofit): MembershipService =
+    retrofit.create(MembershipService::class.java)

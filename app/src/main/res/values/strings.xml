@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Dokternak</string>
+
+    <string name="label_login">LOGIN AKUN</string>
+    <string name="label_welcome_back">Selamat Datang Kembali</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_password">Kata Sandi</string>
+    <string name="label_account_availability">Belum punya akun ?</string>
+    <string name="action_login">Masuk</string>
+    <string name="action_register">Daftar Akun</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_article">Artikel</string>
+    <string name="menu_officer">Petugas</string>
+    <string name="menu_puskeswan">Puskeswan</string>
+    <string name="menu_profile">Profile</string>
+    <string name="label_create_new_account">Buat Akun Baru</string>
+    <string name="hint_fullname">Nama Lengkap</string>
+    <string name="label_main_discovery">Temukan Petugas Kesehatan Hewan Dilingkungan Terdekat!</string>
+    <string name="message_email_cant_empty">Email tidak boleh kosong</string>
+    <string name="message_password_cant_empty">Password tidak boleh kosong</string>
+    <string name="message_email_is_not_valid">Email tidak valid</string>
+    <string name="error_something_wrong">Terjadi Kesalahan</string>
+    <string name="label_see_all">Lihat Semua</string>
+    <string name="label_newest_article">Artikel Terbaru</string>
+    <string name="label_consult_with_doctor">Konsultasi dengan Petugas</string>
+    <string name="message_name_cant_empty">Nama tidak boleh kosong</string>
+    <string name="action_logout">Keluar</string>
+    <string name="title_information">Informasi</string>
+    <string name="message_logout_confirmation">Apakah anda yakin ingin keluar ?</string>
 </resources>
