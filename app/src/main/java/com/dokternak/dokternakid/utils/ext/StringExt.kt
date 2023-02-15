@@ -18,3 +18,11 @@ fun String.toBearer(): String {
 fun String.toRequestBody(): RequestBody {
     return this.toRequestBody("multipart/form-data".toMediaTypeOrNull())
 }
+
+fun String.isValidEmail(): Boolean {
+    return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+}
+
+fun String.isNotValidEmail(): Boolean {
+    return TextUtils.isEmpty(this) && !android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+}

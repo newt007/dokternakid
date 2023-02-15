@@ -76,6 +76,11 @@ fun hideLoading(loadingView: View) {
     loadingView.gone()
 }
 
+fun EditText.showMessage(errorMessage: String) {
+    requestFocus()
+    error = errorMessage
+}
+
 fun View.popTap(){
     this.visibility = View.VISIBLE
     this.alpha = 1.0f

@@ -28,6 +28,7 @@ abstract class BaseFragment<VB: ViewBinding>: Fragment() {
         initUI()
         initAction()
         initProcess()
+        initObservers()
     }
 
     override fun onDestroyView() {

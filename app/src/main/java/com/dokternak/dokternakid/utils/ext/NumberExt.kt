@@ -12,6 +12,10 @@ fun Double?.orZero(): Double {
     return this ?: 0.0
 }
 
+fun Long?.orZero(): Long {
+    return this ?: 0L
+}
+
 fun Int.toRequestBody(): RequestBody {
     return this.toString().toRequestBody("multipart/form-data".toMediaTypeOrNull())
 }

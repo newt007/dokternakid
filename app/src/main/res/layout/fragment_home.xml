@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/dimen_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_profile" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgDokternakLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/logo_dokternak"
+            app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imgProfile" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBanner"
+            android:src="@drawable/bg_gunung"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/bg_rounded"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/dimen_32dp"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imgDokternakLogo" />
+
+        <TextView
+            android:id="@+id/tvFindDoctorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_consult_with_doctor"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBanner"
+            style="@style/DokternakTextStyle.Bold.Header2.DarkBlue"/>
+
+        <TextView
+            android:id="@+id/tvDiscoverySection"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:text="@string/label_main_discovery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFindDoctorTitle"
+            style="@style/DokternakTextStyle.Body2"/>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerOfficer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tvDiscoverySection">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/layout_shimmer_officer"/>
+
+                <include layout="@layout/layout_shimmer_officer"/>
+
+                <include layout="@layout/layout_shimmer_officer"/>
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOfficer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDiscoverySection"
+            android:visibility="invisible"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_officer"/>
+
+        <TextView
+            android:id="@+id/tvNewestArticlesLabel"
+            android:text="@string/label_newest_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvOfficer"
+            style="@style/DokternakTextStyle.Bold.Header3.DarkBlue"/>
+
+        <TextView
+            android:id="@+id/tvSeeAllArticles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_see_all"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNewestArticlesLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvNewestArticlesLabel" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvArticle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:paddingEnd="@dimen/dimen_8dp"
+            android:paddingStart="@dimen/dimen_8dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_article"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tvSeeAllArticles"/>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerArticle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeeAllArticles">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <include layout="@layout/layout_shimmer_article"/>
+
+                <include layout="@layout/layout_shimmer_article"/>
+
+                <include layout="@layout/layout_shimmer_article"/>
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
