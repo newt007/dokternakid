@@ -3,7 +3,6 @@ package com.dokternak.dokternakid.presentation.login
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dokternak.dokternakid.R
 import com.dokternak.dokternakid.base.BaseFragment
@@ -59,6 +58,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                         hideLoading(viewDimmer, pbLogin)
                     }
                     showCustomToast("Login berhasil")
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 }
                 is ApiResponse.Error -> {
                     showCustomToast("Email/Password anda salah")

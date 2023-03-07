@@ -43,7 +43,7 @@ android {
     flavorDimensions "env"
     productFlavors {
         dev {
-            buildConfigField("String", "BASE_URL", '"https://dev.base_url.com"')
+            buildConfigField("String", "BASE_URL", '"https://www.dokternak.id/api/"')
             dimension "env"
             versionCode 1
             versionName "1.0"

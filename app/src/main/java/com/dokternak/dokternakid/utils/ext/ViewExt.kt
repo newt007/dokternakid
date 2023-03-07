@@ -7,8 +7,10 @@ import android.os.Looper
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dokternak.dokternakid.R
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.snackbar.Snackbar
 
 fun View.show() {
@@ -119,4 +121,15 @@ fun View.showSnackBar(message: String) {
             snackbar.dismiss()
         }
     }.show()
+}
+
+fun startShimmerLoading(loadingContainer: ShimmerFrameLayout, recyclerView: RecyclerView) {
+    loadingContainer.show()
+    loadingContainer.startShimmer()
+    recyclerView.gone()
+}
+
+fun stopShimmerLoading(loadingContainer: ShimmerFrameLayout, recyclerView: RecyclerView) {
+    loadingContainer.gone()
+    recyclerView.show()
 }

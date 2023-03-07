@@ -80,6 +80,18 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="DokternakTextStyle.Body2.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DokternakTextStyle.Body2.Bold.DarkBlue">
+        <item name="android:textColor">@color/colorDarkBlue900</item>
+    </style>
+
+    <style name="DokternakTextStyle.Body2.DarkBlue">
+        <item name="android:textColor">@color/colorDarkBlue900</item>
+    </style>
+
     <style name="DokternakTextStyle.SemiBold.Body2.DarkBlue">
         <item name="android:textColor">@color/colorDarkBlue900</item>
     </style>

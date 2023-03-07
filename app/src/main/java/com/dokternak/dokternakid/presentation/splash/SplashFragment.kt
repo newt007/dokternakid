@@ -38,6 +38,7 @@ class SplashFragment: BaseFragment<FragmentSplashScreenBinding>() {
         Handler(Looper.getMainLooper()).postDelayed({
             when(isLogin) {
                 false -> findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                true -> findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
             }
         }, SPLASH_DELAY_TIME)
     }

@@ -1,7 +1,9 @@
 package com.dokternak.dokternakid.di
 
+import com.dokternak.dokternakid.data.article.remote.ArticleService
 import com.dokternak.dokternakid.data.lib.HeaderInterceptor
 import com.dokternak.dokternakid.data.membership.remote.MembershipService
+import com.dokternak.dokternakid.data.officer.remote.OfficerService
 import com.dokternak.dokternakid.utils.PreferenceManager
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -36,6 +38,8 @@ val networkModule = module {
     }
 
     single { provideMembershipService(get()) }
+    single { provideOfficerService(get()) }
+    single { provideArticleService(get()) }
 
 }
 
@@ -49,3 +53,9 @@ private fun getHeaderInterceptor(preferenceManager: PreferenceManager): Intercep
 
 fun provideMembershipService(retrofit: Retrofit): MembershipService =
     retrofit.create(MembershipService::class.java)
+
+fun provideOfficerService(retrofit: Retrofit): OfficerService =
+    retrofit.create(OfficerService::class.java)
+
+fun provideArticleService(retrofit: Retrofit): ArticleService =
+    retrofit.create(ArticleService::class.java)

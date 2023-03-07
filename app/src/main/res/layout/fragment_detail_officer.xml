@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/thumbnail_background"
+            tools:src="@drawable/bg_gunung"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnBack"
+            android:src="@drawable/ic_arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnPhone"
+            android:src="@drawable/ic_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            app:backgroundTint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvIdentity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_48dp"
+            app:cardElevation="@dimen/dimen_16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
+            app:layout_constraintTop_toBottomOf="@id/imgProfile">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvOfficerName"
+                    tools:text="Officer Name"
+                    android:textAlignment="center"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/DokternakTextStyle.Bold.Header3.DarkBlue"/>
+
+                <View
+                    android:id="@+id/dividerIdentity"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:background="@color/colorDarkBlue900"
+                    app:layout_constraintTop_toBottomOf="@id/tvOfficerName"/>
+
+                <TextView
+                    android:id="@+id/tvOfficerPosition"
+                    tools:text="Position"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/dividerIdentity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    style="@style/DokternakTextStyle.SemiBold.Body2.DarkBlue"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvOfficerProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            android:layout_marginBottom="@dimen/dimen_16dp"
+            android:elevation="@dimen/dimen_10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvIdentity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
+
+                <TextView
+                    android:id="@+id/tvLabelGender"
+                    android:text="@string/label_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Laki-laki"
+                    style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+                <TextView
+                    android:id="@+id/tvLabelEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_email"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="dokternak@gmail.com"
+                    style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+                <TextView
+                    android:id="@+id/tvLabelLocation"
+                    android:text="@string/label_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"/>
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    tools:text="Jember"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+                <TextView
+                    android:id="@+id/tvLabelPhone"
+                    android:text="@string/label_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"/>
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    tools:text="08212381009"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+                <TextView
+                    android:id="@+id/tvLabelAddress"
+                    android:text="@string/label_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"/>
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    tools:text="08212381009"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+                <TextView
+                    android:id="@+id/tvLabelSchedule"
+                    android:text="@string/label_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"/>
+
+                <TextView
+                    android:id="@+id/tvSchedule"
+                    tools:text="Jadwal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMessage"
+            android:src="@drawable/ic_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            app:backgroundTint="@color/colorDarkBlue500"
+            app:tint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

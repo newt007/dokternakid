@@ -27,4 +27,9 @@ object ConstVal {
         Manifest.permission.ACCESS_COARSE_LOCATION,
         Manifest.permission.ACCESS_FINE_LOCATION
     )
+
+    const val ARTICLE_IMAGE_BASE_URL = "https://www.dokternak.id/public/data/data_artikel/"
+    const val OFFICER_IMAGE_BASE_URL = "https://www.dokternak.id/public/data/data_dokter/"
+    const val FARMER_IMAGE_BASE_URL = "https://www.dokternak.id/public/data/data_peternak/"
+    const val PUSKESWAN_IMAGE_BASE_URL = "https://www.dokternak.id/public/data/data_puskeswan/"
 }
