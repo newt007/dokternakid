@@ -1,29 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgProfile"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="@dimen/dimen_64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/bg_gunung" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cvHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/action_logout"
-        android:textAllCaps="false"
-        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        android:background="@color/colorDarkBlue900"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvTitleProfile"
+            style="@style/DokternakTextStyle.Body2.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/label_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="@dimen/dimen_64dp"
+            android:layout_marginBottom="@dimen/dimen_72dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/bg_gunung" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvIdentity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_48dp"
+        app:cardElevation="@dimen/dimen_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cvHeader"
+        app:layout_constraintTop_toBottomOf="@id/cvHeader">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvHi"
+                android:text="@string/label_hi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/DokternakTextStyle.SemiBold.Body2.DarkBlue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHi"
+                tools:text="Position" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/imgEmail"
+        android:src="@drawable/ic_emails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_32dp"
-        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_marginStart="@dimen/dimen_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvIdentity" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        tools:text="Email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgEmail"
+        app:layout_constraintTop_toTopOf="@id/imgEmail"
+        style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+    <ImageView
+        android:id="@+id/imgContact"
+        android:src="@drawable/ic_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:layout_marginStart="@dimen/dimen_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
+    <TextView
+        android:id="@+id/tvContact"
+        tools:text="Email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgContact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgContact"
+        app:layout_constraintTop_toTopOf="@id/imgContact"
+        style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+    <ImageView
+        android:id="@+id/imgGender"
+        android:src="@drawable/ic_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:layout_marginStart="@dimen/dimen_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvContact" />
+
+    <TextView
+        android:id="@+id/tvGender"
+        tools:text="Email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgGender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgGender"
+        app:layout_constraintTop_toTopOf="@id/imgGender"
+        style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+    <ImageView
+        android:id="@+id/imgLocation"
+        android:src="@drawable/ic_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_32dp"
+        android:layout_marginStart="@dimen/dimen_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGender" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        tools:text="Email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgLocation"
+        app:layout_constraintTop_toTopOf="@id/imgLocation"
+        style="@style/DokternakTextStyle.Body2.Bold.DarkBlue"/>
+
+    <LinearLayout
+        android:id="@+id/layoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLocation">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/action_edit_profile"
+            android:textColor="@color/colorDarkBlue900"
+            android:textAllCaps="false"
+            app:backgroundTint="@color/white"/>
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/action_logout"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

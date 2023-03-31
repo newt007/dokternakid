@@ -39,5 +39,21 @@ class OfficerDataStore(
         }
     }
 
+    override fun getSearchOfficers(officerName: String): Flow<ApiResponse<List<Officer>>> = flow {
+        try {
+            emit(ApiResponse.Loading)
+            val response = api.getSearchOfficers(officerName)
+            response.data?.let { result ->
+                if (result.isNotEmpty()) {
+                    emit(ApiResponse.Success(result.toDomain()))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            }
+        } catch (ex: Exception) {
+            emit(ApiResponse.Error(ex.message.toString()))
+        }
+    }
+
 
 }

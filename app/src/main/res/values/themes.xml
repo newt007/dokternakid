@@ -100,4 +100,8 @@
         <item name="android:textColor">@color/colorCanary70</item>
     </style>
 
+    <style name="DokternakTextStyle.Body2.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

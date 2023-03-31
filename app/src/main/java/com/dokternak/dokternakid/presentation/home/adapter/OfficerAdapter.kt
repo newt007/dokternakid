@@ -14,6 +14,7 @@ class OfficerAdapter(val page: String, private val onClick: (Officer) -> Unit) :
     private val officerList = mutableListOf<Officer>()
 
     fun setData(list: List<Officer>) {
+        officerList.clear()
         officerList.addAll(list)
         notifyDataSetChanged()
     }

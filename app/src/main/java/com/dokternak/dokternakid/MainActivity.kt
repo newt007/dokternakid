@@ -26,12 +26,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNav() {
-        val navHostBottomBar = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navHostBottomBar =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navControllerBottomBar = navHostBottomBar.navController
 
         binding.mainBottomNavigation.setupWithNavController(navControllerBottomBar)
         navControllerBottomBar.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment) {
+            if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment || destination.id == R.id.officerFragment || destination.id == R.id.articleFragment) {
                 binding.mainBottomNavigation.show()
             } else {
                 binding.mainBottomNavigation.gone()

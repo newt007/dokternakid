@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_homeFragment_to_officerDetailFragment"
             app:destination="@id/officerDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/officerDetailFragment"
@@ -56,6 +59,42 @@
         <argument
             android:name="officer_id"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.dokternak.dokternakid.presentation.article.detail.ArticleDetailFragment"
+        android:label="ArticleDetailFragment" >
+        <argument
+            android:name="articleId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/officerFragment"
+        android:name="com.dokternak.dokternakid.presentation.officer.OfficerFragment"
+        android:label="OfficerFragment" >
+        <action
+            android:id="@+id/action_officerFragment_to_officerDetailFragment"
+            app:destination="@id/officerDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.dokternak.dokternakid.presentation.article.ArticleFragment"
+        android:label="ArticleFragment" >
+        <action
+            android:id="@+id/action_articleFragment2_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.dokternak.dokternakid.presentation.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/main_navigation"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"/>
     </fragment>
 
 </navigation>

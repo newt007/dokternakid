@@ -4,6 +4,7 @@ import com.dokternak.dokternakid.data.lib.BaseResponse
 import com.dokternak.dokternakid.data.officer.model.OfficerItem
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface OfficerService {
 
@@ -14,5 +15,10 @@ interface OfficerService {
     suspend fun getOfficerDetail(
         @Path("id") id: String
     ): BaseResponse<OfficerItem>
+
+    @GET("api_petugas/cari/petugas")
+    suspend fun getSearchOfficers(
+        @Query("nama_dokter") officerName: String
+    ): BaseResponse<List<OfficerItem>>
 
 }

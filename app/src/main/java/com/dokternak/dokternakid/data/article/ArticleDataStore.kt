@@ -39,4 +39,20 @@ class ArticleDataStore(
         }
     }
 
+    override fun getSearchArticles(title: String): Flow<ApiResponse<List<Article>>> = flow {
+        try {
+            emit(ApiResponse.Loading)
+            val response = service.getSearchArticles(title)
+            response.data?.let { result ->
+                if (result.isNotEmpty()) {
+                    emit(ApiResponse.Success(result.toDomain()))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            }
+        } catch (ex: Exception) {
+            emit(ApiResponse.Error(ex.message.toString()))
+        }
+    }
+
 }

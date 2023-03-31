@@ -7,7 +7,6 @@ import androidx.navigation.fragment.findNavController
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentDetailOfficerBinding
-import com.dokternak.dokternakid.presentation.officer.OfficerViewModel
 import com.dokternak.dokternakid.utils.ConstVal.OFFICER_IMAGE_BASE_URL
 import com.dokternak.dokternakid.utils.ext.click
 import com.dokternak.dokternakid.utils.ext.setImageUrl
@@ -15,7 +14,7 @@ import org.koin.android.ext.android.inject
 
 class OfficerDetailFragment : BaseFragment<FragmentDetailOfficerBinding>() {
 
-    private val officerViewModel: OfficerViewModel by inject()
+    private val officerDetailViewModel: OfficerDetailViewModel by inject()
 
     private var id: String? = null
 
@@ -42,11 +41,11 @@ class OfficerDetailFragment : BaseFragment<FragmentDetailOfficerBinding>() {
     }
 
     override fun initProcess() {
-        officerViewModel.getOfficerDetail(id.toString())
+        officerDetailViewModel.getOfficerDetail(id.toString())
     }
 
     override fun initObservers() {
-        officerViewModel.getOfficerDetail.observe(viewLifecycleOwner) { result ->
+        officerDetailViewModel.getOfficerDetail.observe(viewLifecycleOwner) { result ->
             when(result) {
                 is ApiResponse.Loading -> {
                 }

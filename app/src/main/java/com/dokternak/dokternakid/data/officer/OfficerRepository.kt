@@ -10,4 +10,6 @@ interface OfficerRepository {
 
     fun getOfficerDetail(id: String): Flow<ApiResponse<Officer>>
 
+    fun getSearchOfficers(officerName: String): Flow<ApiResponse<List<Officer>>>
+
 }

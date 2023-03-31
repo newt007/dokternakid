@@ -17,6 +17,7 @@ object ConstVal {
     const val KEY_ADDRESS = "key.address"
     const val KEY_EMAIL = "key.email"
     const val KEY_PROFILE_PICTURE = "key.profilePicture"
+    const val KEY_GENDER = "key.gender"
 
     const val JSON_ACCEPT = "application/json"
 

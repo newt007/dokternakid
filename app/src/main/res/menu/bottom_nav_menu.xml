@@ -6,17 +6,17 @@
         android:iconTint="@color/colorDarkBlue900"
         android:title="@string/menu_home" />
 
-    <item android:id="@+id/artikel"
+    <item android:id="@+id/articleFragment"
         android:icon="@drawable/ic_artikel"
         android:iconTint="@color/colorDarkBlue900"
         android:title="@string/menu_article" />
 
-    <item android:id="@+id/petugas"
+    <item android:id="@+id/officerFragment"
         android:icon="@drawable/ic_doctor"
         android:iconTint="@color/colorDarkBlue900"
         android:title="@string/menu_officer" />
 
-    <item android:id="@+id/puskeswan"
+    <item android:id="@+id/doctorFragment"
         android:icon="@drawable/ic_puskeswan"
         android:iconTint="@color/colorDarkBlue900"
         android:title="@string/menu_puskeswan" />

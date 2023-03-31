@@ -59,9 +59,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     val officerAdapter = OfficerAdapter(
                         "Home",
                         onClick = {
-                            val direction =
-                                HomeFragmentDirections.actionHomeFragmentToOfficerDetailFragment(it.doctorId.toString())
-                            findNavController().navigate(direction)
+                            toDetailOfficer(it.id)
                         },
                     )
                     officerAdapter.setData(result.data)
@@ -90,7 +88,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     with(binding) {
                         stopShimmerLoading(shimmerOfficer, rvArticle)
                     }
-                    val articleAdapter = ArticleAdapter()
+                    val articleAdapter = ArticleAdapter(onClick = {
+                        toDetailArticle(it.articleId)
+                    })
                     articleAdapter.setData(result.data)
                     binding.rvArticle.adapter = articleAdapter
                 }
@@ -107,4 +107,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         }
     }
+
+    private fun toDetailArticle(id: String) {
+        val navigateToDetailArticle =
+            HomeFragmentDirections.actionHomeFragmentToArticleDetailFragment(id)
+        findNavController().navigate(navigateToDetailArticle)
+    }
+
+    private fun toDetailOfficer(id: String) {
+        val navigateToDetailOfficer =
+            HomeFragmentDirections.actionHomeFragmentToOfficerDetailFragment(id)
+        findNavController().navigate(navigateToDetailOfficer)
+    }
+
 }

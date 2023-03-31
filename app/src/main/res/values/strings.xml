@@ -33,4 +33,9 @@
     <string name="label_phone">Telepon</string>
     <string name="label_address">Alamat</string>
     <string name="label_schedule">Jadwal</string>
+    <string name="label_profile">Profile</string>
+    <string name="label_hi">Hai !</string>
+    <string name="action_edit_profile">Edit Profil</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_yes">Ya</string>
 </resources>

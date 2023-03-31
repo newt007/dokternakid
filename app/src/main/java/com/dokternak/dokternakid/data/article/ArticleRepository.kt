@@ -10,4 +10,6 @@ interface ArticleRepository {
 
     fun getArticleDetail(id: String): Flow<ApiResponse<Article>>
 
+    fun getSearchArticles(title: String): Flow<ApiResponse<List<Article>>>
+
 }

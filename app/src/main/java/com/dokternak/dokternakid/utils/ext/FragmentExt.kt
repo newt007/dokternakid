@@ -3,6 +3,7 @@ package com.dokternak.dokternakid.utils.ext
 import android.view.Gravity
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.dokternak.dokternakid.R
 
@@ -21,4 +22,21 @@ fun Fragment.showCustomToast(textAlert: String?) {
         view = layout
         show()
     }
+}
+
+fun Fragment.showConfirmDialog(
+    title: String,
+    message: String,
+    onPositiveClick:() -> Unit
+){
+    AlertDialog.Builder(requireContext()).apply {
+        setTitle(title)
+        setMessage(message)
+        setNegativeButton(getString(R.string.action_cancel)) { p0, _ ->
+            p0.dismiss()
+        }
+        setPositiveButton(getString(R.string.action_yes)) { _, _ ->
+            onPositiveClick()
+        }
+    }.create().show()
 }

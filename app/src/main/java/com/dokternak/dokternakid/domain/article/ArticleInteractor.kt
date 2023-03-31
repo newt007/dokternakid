@@ -21,4 +21,9 @@ class ArticleInteractor(
             .flowOn(Dispatchers.IO)
     }
 
+    override fun getSearchArticles(title: String): Flow<ApiResponse<List<Article>>> {
+        return repository.getSearchArticles(title)
+            .flowOn(Dispatchers.IO)
+    }
+
 }

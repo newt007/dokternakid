@@ -21,4 +21,9 @@ class OfficerInteractor(
             .flowOn(Dispatchers.IO)
     }
 
+    override fun getSearchOfficers(officerName: String): Flow<ApiResponse<List<Officer>>> {
+        return repository.getSearchOfficers(officerName)
+            .flowOn(Dispatchers.IO)
+    }
+
 }

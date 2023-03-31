@@ -1,4 +1,4 @@
-package com.dokternak.dokternakid.presentation.officer
+package com.dokternak.dokternakid.presentation.officer.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,18 +9,18 @@ import com.dokternak.dokternakid.domain.officer.OfficerUseCase
 import com.dokternak.dokternakid.domain.officer.model.Officer
 import kotlinx.coroutines.launch
 
-class OfficerViewModel(
+class OfficerDetailViewModel(
     private val officerUseCase: OfficerUseCase
 ): ViewModel() {
 
-    private val _searchOfficerResult = MutableLiveData<ApiResponse<List<Officer>>>()
-    val searchOfficerResult: LiveData<ApiResponse<List<Officer>>> by lazy { _searchOfficerResult }
+    private val _getOfficerDetail = MutableLiveData<ApiResponse<Officer>>()
+    val getOfficerDetail: LiveData<ApiResponse<Officer>> by lazy { _getOfficerDetail }
 
-    fun getSearchOfficers(officerName: String) {
+    fun getOfficerDetail(id: String) {
         viewModelScope.launch {
-            officerUseCase.getSearchOfficers(officerName)
+            officerUseCase.getOfficerDetail(id)
                 .collect {
-                    _searchOfficerResult.value = it
+                    _getOfficerDetail.value = it
                 }
         }
     }
