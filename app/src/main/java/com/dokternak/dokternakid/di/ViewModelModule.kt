@@ -2,6 +2,7 @@ package com.dokternak.dokternakid.di
 
 import com.dokternak.dokternakid.presentation.article.detail.ArticleDetailViewModel
 import com.dokternak.dokternakid.presentation.article.detail.ArticleViewModel
+import com.dokternak.dokternakid.presentation.consultation.AddConsultationViewModel
 import com.dokternak.dokternakid.presentation.home.HomeViewModel
 import com.dokternak.dokternakid.presentation.login.LoginViewModel
 import com.dokternak.dokternakid.presentation.officer.OfficerViewModel
@@ -19,5 +20,6 @@ val viewModelModule = module {
     viewModel { ArticleDetailViewModel(get()) }
     viewModel { OfficerDetailViewModel(get()) }
     viewModel { ArticleViewModel(get()) }
+    viewModel { AddConsultationViewModel(get()) }
 
 }

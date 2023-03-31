@@ -59,7 +59,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     val officerAdapter = OfficerAdapter(
                         "Home",
                         onClick = {
-                            toDetailOfficer(it.id)
+                            toDetailOfficer(it.doctorId.toString())
                         },
                     )
                     officerAdapter.setData(result.data)

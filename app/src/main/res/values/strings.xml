@@ -38,4 +38,14 @@
     <string name="action_edit_profile">Edit Profil</string>
     <string name="action_cancel">Batal</string>
     <string name="action_yes">Ya</string>
+    <string name="label_write_new_consultation">Tulis Konsultasi</string>
+    <string name="label_officer_name">Nama Petugas</string>
+    <string name="hint_insert_officer_name">Masukkan Nama Petugas</string>
+    <string name="label_livestock">Hewan Ternak</string>
+    <string name="label_animal_category">Kategori Hewan</string>
+    <string name="label_pet">Hewan Kesayangan</string>
+    <string name="label_animal_name">Nama Hewan</string>
+    <string name="hint_insert_animal_name">Masukkan Nama Hewan</string>
+    <string name="label_animal_type">Jenis Hewan</string>
+    <string name="action_send">Kirim</string>
 </resources>

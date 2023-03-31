@@ -2,6 +2,7 @@ package com.dokternak.dokternakid.base
 
 import android.app.Application
 import com.dokternak.dokternakid.di.feature.articleModule
+import com.dokternak.dokternakid.di.feature.categoryModule
 import com.dokternak.dokternakid.di.feature.membershipModule
 import com.dokternak.dokternakid.di.feature.officerModule
 import com.dokternak.dokternakid.di.networkModule
@@ -25,6 +26,7 @@ class BaseApplication: Application() {
                     officerModule,
                     articleModule,
                     membershipModule,
+                    categoryModule,
                     networkModule,
                     preferenceModule,
                     viewModelModule

@@ -1,7 +1,10 @@
 package com.dokternak.dokternakid.domain.officer.model
 
+import android.os.Parcelable
 import com.dokternak.dokternakid.utils.ext.emptyString
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Officer(
     val doctorId: Int = 0,
     val doctorName: String = emptyString(),
@@ -17,4 +20,4 @@ data class Officer(
     val schedule: String = emptyString(),
     val verified: String = emptyString(),
     val position: String = emptyString()
-)
+): Parcelable
