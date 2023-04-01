@@ -106,5 +106,21 @@
             android:name="officer"
             app:argType="com.dokternak.dokternakid.domain.officer.model.Officer" />
     </fragment>
+    <fragment
+        android:id="@+id/puskeswanFragment"
+        android:name="com.dokternak.dokternakid.presentation.puskeswan.PuskeswanFragment"
+        android:label="PuskeswanFragment" >
+        <action
+            android:id="@+id/action_puskeswanFragment_to_puskeswanDetailFragment"
+            app:destination="@id/puskeswanDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/puskeswanDetailFragment"
+        android:name="com.dokternak.dokternakid.presentation.puskeswan.detail.PuskeswanDetailFragment"
+        android:label="PuskeswanDetailFragment" >
+        <argument
+            android:name="puskeswanId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

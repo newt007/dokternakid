@@ -32,7 +32,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainBottomNavigation.setupWithNavController(navControllerBottomBar)
         navControllerBottomBar.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.homeFragment || destination.id == R.id.profileFragment || destination.id == R.id.officerFragment || destination.id == R.id.articleFragment) {
+            if (destination.id == R.id.homeFragment ||
+                destination.id == R.id.profileFragment ||
+                destination.id == R.id.officerFragment ||
+                destination.id == R.id.articleFragment ||
+                destination.id == R.id.puskeswanFragment
+            ) {
                 binding.mainBottomNavigation.show()
             } else {
                 binding.mainBottomNavigation.gone()

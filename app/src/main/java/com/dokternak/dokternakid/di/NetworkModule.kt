@@ -5,6 +5,7 @@ import com.dokternak.dokternakid.data.category.remote.CategoryService
 import com.dokternak.dokternakid.data.lib.HeaderInterceptor
 import com.dokternak.dokternakid.data.membership.remote.MembershipService
 import com.dokternak.dokternakid.data.officer.remote.OfficerService
+import com.dokternak.dokternakid.data.puskeswan.remote.PuskeswanService
 import com.dokternak.dokternakid.utils.PreferenceManager
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -42,6 +43,7 @@ val networkModule = module {
     single { provideOfficerService(get()) }
     single { provideArticleService(get()) }
     single { provideCategoryService(get()) }
+    single { providePuskeswanService(get()) }
 
 }
 
@@ -64,3 +66,6 @@ fun provideArticleService(retrofit: Retrofit): ArticleService =
 
 fun provideCategoryService(retrofit: Retrofit): CategoryService =
     retrofit.create(CategoryService::class.java)
+
+fun providePuskeswanService(retrofit: Retrofit): PuskeswanService =
+    retrofit.create(PuskeswanService::class.java)

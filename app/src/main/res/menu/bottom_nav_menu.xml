@@ -16,7 +16,7 @@
         android:iconTint="@color/colorDarkBlue900"
         android:title="@string/menu_officer" />
 
-    <item android:id="@+id/doctorFragment"
+    <item android:id="@+id/puskeswanFragment"
         android:icon="@drawable/ic_puskeswan"
         android:iconTint="@color/colorDarkBlue900"
         android:title="@string/menu_puskeswan" />

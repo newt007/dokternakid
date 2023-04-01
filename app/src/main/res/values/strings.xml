@@ -48,4 +48,5 @@
     <string name="hint_insert_animal_name">Masukkan Nama Hewan</string>
     <string name="label_animal_type">Jenis Hewan</string>
     <string name="action_send">Kirim</string>
+    <string name="label_puskeswan">Puskeswan</string>
 </resources>
