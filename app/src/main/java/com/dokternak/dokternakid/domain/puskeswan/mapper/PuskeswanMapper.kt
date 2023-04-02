@@ -13,7 +13,8 @@ fun PuskeswanItem.toDomain(): Puskeswan {
         workingArea = this.workingArea ?: emptyString(),
         workingTime = this.workingTime ?: emptyString(),
         puskeswanImage = this.puskeswanImage ?: emptyString(),
-        phoneNumber = this.phoneNumber ?: emptyString()
+        phoneNumber = this.phoneNumber ?: emptyString(),
+        puskeswanMaps = this.puskeswanMaps ?: emptyString()
     )
 }
 

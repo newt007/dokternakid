@@ -2,6 +2,7 @@ package com.dokternak.dokternakid.di
 
 import com.dokternak.dokternakid.data.article.remote.ArticleService
 import com.dokternak.dokternakid.data.category.remote.CategoryService
+import com.dokternak.dokternakid.data.consultation.remote.ConsultationService
 import com.dokternak.dokternakid.data.lib.HeaderInterceptor
 import com.dokternak.dokternakid.data.membership.remote.MembershipService
 import com.dokternak.dokternakid.data.officer.remote.OfficerService
@@ -44,6 +45,7 @@ val networkModule = module {
     single { provideArticleService(get()) }
     single { provideCategoryService(get()) }
     single { providePuskeswanService(get()) }
+    single { provideConsultationService(get()) }
 
 }
 
@@ -69,3 +71,6 @@ fun provideCategoryService(retrofit: Retrofit): CategoryService =
 
 fun providePuskeswanService(retrofit: Retrofit): PuskeswanService =
     retrofit.create(PuskeswanService::class.java)
+
+fun provideConsultationService(retrofit: Retrofit): ConsultationService =
+    retrofit.create(ConsultationService::class.java)

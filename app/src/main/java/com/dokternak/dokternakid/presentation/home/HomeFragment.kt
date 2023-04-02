@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dokternak.dokternakid.R
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentHomeBinding
 import com.dokternak.dokternakid.presentation.home.adapter.ArticleAdapter
 import com.dokternak.dokternakid.presentation.home.adapter.OfficerAdapter
+import com.dokternak.dokternakid.utils.ext.click
 import com.dokternak.dokternakid.utils.ext.startShimmerLoading
 import com.dokternak.dokternakid.utils.ext.stopShimmerLoading
 import org.koin.android.ext.android.inject
@@ -37,6 +39,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun initAction() {
+        binding.apply {
+            imgConsultation.click {
+                findNavController().navigate(R.id.action_homeFragment_to_consultationFragment)
+            }
+        }
     }
 
     override fun initProcess() {

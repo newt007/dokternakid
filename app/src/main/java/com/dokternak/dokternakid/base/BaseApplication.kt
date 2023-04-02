@@ -25,6 +25,7 @@ class BaseApplication: Application() {
                     membershipModule,
                     categoryModule,
                     puskeswanModule,
+                    consultationModule,
                     networkModule,
                     preferenceModule,
                     viewModelModule

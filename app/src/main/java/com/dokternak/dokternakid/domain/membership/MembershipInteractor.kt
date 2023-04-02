@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class MembershipInteractor(
     private val repository: MembershipRepository
-): MembershipUseCase {
+) : MembershipUseCase {
 
     override fun loginUser(email: String, password: String): Flow<ApiResponse<User>> {
         return repository.loginUser(email, password)
@@ -23,6 +23,28 @@ class MembershipInteractor(
     ): Flow<ApiResponse<User>> {
         return repository.registerUser(name, email, password)
             .flowOn(Dispatchers.IO)
+    }
+
+    override fun editUserProfile(
+        id: Int,
+        name: String,
+        password: String,
+        email: String,
+        phoneNumber: String,
+        gender: String,
+        address: String,
+        profilePicture: String
+    ): Flow<ApiResponse<User>> {
+        return repository.editUserProfile(
+            id,
+            name,
+            password,
+            email,
+            phoneNumber,
+            gender,
+            address,
+            profilePicture
+        ).flowOn(Dispatchers.IO)
     }
 
 }

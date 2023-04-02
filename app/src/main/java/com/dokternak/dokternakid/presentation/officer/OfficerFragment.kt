@@ -36,7 +36,7 @@ class OfficerFragment : BaseFragment<FragmentOfficerBinding>() {
         binding.svOfficer.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 officerViewModel.getSearchOfficers(query.toString())
-                return false
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {

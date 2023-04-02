@@ -9,5 +9,6 @@ data class Puskeswan(
     val workingArea: String = emptyString(),
     val workingTime: String = emptyString(),
     val puskeswanImage: String = emptyString(),
-    val phoneNumber: String = emptyString()
+    val phoneNumber: String = emptyString(),
+    val puskeswanMaps: String = emptyString()
 )

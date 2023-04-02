@@ -3,9 +3,7 @@ package com.dokternak.dokternakid.data.membership.remote
 import com.dokternak.dokternakid.data.lib.BaseResponse
 import com.dokternak.dokternakid.data.membership.model.UserItem
 import com.dokternak.dokternakid.data.membership.model.response.RegisterResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface MembershipService {
 
@@ -23,5 +21,18 @@ interface MembershipService {
         @Field("email") email: String,
         @Field("password") password: String
     ): RegisterResponse
+
+    @FormUrlEncoded
+    @PUT("api_users/{id}/updatepeternak")
+    suspend fun editUserProfile(
+        @Path("id") id: Int,
+        @Field("name") name: String,
+        @Field("password") password: String,
+        @Field("email") email: String,
+        @Field("no_hp") phoneNumber: String,
+        @Field("jenis_kelamin") gender: String,
+        @Field("alamat") address: String,
+        @Field("nama_gambar") profilePicture: String
+    ): BaseResponse<UserItem>
 
 }

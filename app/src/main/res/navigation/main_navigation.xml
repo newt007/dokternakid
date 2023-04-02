@@ -50,6 +50,9 @@
         <action
             android:id="@+id/action_homeFragment_to_articleDetailFragment"
             app:destination="@id/articleDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_consultationFragment"
+            app:destination="@id/consultationFragment" />
     </fragment>
     <fragment
         android:id="@+id/officerDetailFragment"
@@ -97,10 +100,13 @@
             app:popUpTo="@id/main_navigation"
             app:launchSingleTop="true"
             app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/addConsultationFragment"
-        android:name="com.dokternak.dokternakid.presentation.consultation.AddConsultationFragment"
+        android:name="com.dokternak.dokternakid.presentation.consultation.add.AddConsultationFragment"
         android:label="AddConsultationFragment" >
         <argument
             android:name="officer"
@@ -122,5 +128,13 @@
             android:name="puskeswanId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.dokternak.dokternakid.presentation.profile.edit.EditProfileFragment"
+        android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/consultationFragment"
+        android:name="com.dokternak.dokternakid.presentation.consultation.ConsultationFragment"
+        android:label="ConsultationFragment" />
 
 </navigation>

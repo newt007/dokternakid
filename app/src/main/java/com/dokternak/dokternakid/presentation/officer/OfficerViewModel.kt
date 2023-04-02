@@ -16,6 +16,10 @@ class OfficerViewModel(
     private val _searchOfficerResult = MutableLiveData<ApiResponse<List<Officer>>>()
     val searchOfficerResult: LiveData<ApiResponse<List<Officer>>> by lazy { _searchOfficerResult }
 
+    init {
+        getSearchOfficers("")
+    }
+
     fun getSearchOfficers(officerName: String) {
         viewModelScope.launch {
             officerUseCase.getSearchOfficers(officerName)

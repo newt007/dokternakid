@@ -55,6 +55,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>() {
                     }
                 )
             }
+            btnEditProfile.click {
+                findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
+            }
         }
     }
 

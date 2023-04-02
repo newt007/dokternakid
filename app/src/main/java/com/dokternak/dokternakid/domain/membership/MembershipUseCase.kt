@@ -17,4 +17,15 @@ interface MembershipUseCase {
         password: String
     ): Flow<ApiResponse<User>>
 
+    fun editUserProfile(
+        id: Int,
+        name: String,
+        password: String,
+        email: String,
+        phoneNumber: String,
+        gender: String,
+        address: String,
+        profilePicture: String
+    ): Flow<ApiResponse<User>>
+
 }

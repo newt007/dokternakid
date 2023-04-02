@@ -15,4 +15,4 @@ data class User(
     val gender: String = emptyString(),
     val address: String = emptyString(),
     val farmPicture: String = emptyString()
-): Any()
+)

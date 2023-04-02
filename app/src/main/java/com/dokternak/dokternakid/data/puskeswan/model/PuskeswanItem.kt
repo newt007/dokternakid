@@ -16,5 +16,7 @@ data class PuskeswanItem(
     @SerializedName("gambar")
     val puskeswanImage: String?,
     @SerializedName("nomer")
-    val phoneNumber: String?
+    val phoneNumber: String?,
+    @SerializedName("maps")
+    val puskeswanMaps: String?
 )
