@@ -1,11 +1,11 @@
-package com.dokternak.dokternakid.presentation.consultation
+package com.dokternak.dokternakid.presentation.consultation.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dokternak.dokternakid.databinding.ItemConsultationBinding
-import com.dokternak.dokternakid.domain.article.consultation.model.ConsultationHistory
+import com.dokternak.dokternakid.domain.consultation.model.ConsultationHistory
 import com.dokternak.dokternakid.utils.ConstVal.OFFICER_IMAGE_BASE_URL
 import com.dokternak.dokternakid.utils.ext.setImageUrl
 
@@ -22,14 +22,14 @@ class ConsultationHistoryAdapter : RecyclerView.Adapter<ConsultationHistoryAdapt
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ConsultationHistoryAdapter.ConsultationViewHolder {
+    ): ConsultationViewHolder {
         val binding =
             ItemConsultationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ConsultationViewHolder(binding)
     }
 
     override fun onBindViewHolder(
-        holder: ConsultationHistoryAdapter.ConsultationViewHolder,
+        holder: ConsultationViewHolder,
         position: Int
     ) {
         consultationList[position].let {

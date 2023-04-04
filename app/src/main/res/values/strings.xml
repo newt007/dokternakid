@@ -75,4 +75,8 @@
     <string name="warning_complaint_must_not_empty">Keluhan tidak boleh kosong</string>
     <string name="message_consultation_sent">Konsultasi berhasil dikirim</string>
     <string name="label_dont_have_any_messages">Anda belum memiliki konsultasi terkirim</string>
+    <string name="label_animal_type_is">Jenis Hewan : %1$s</string>
+    <string name="label_animal_name_is">Nama Hewan : %1$s</string>
+    <string name="message_delete_consultation_confirmation">Apakah anda yakin ingin menghapus konsultasi ini ?</string>
+    <string name="message_consultation_deleted">Konsultasi berhasil dihapus</string>
 </resources>

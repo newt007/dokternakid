@@ -1,4 +1,4 @@
-package com.dokternak.dokternakid.domain.article.consultation.model
+package com.dokternak.dokternakid.domain.consultation.model
 
 import com.dokternak.dokternakid.utils.ext.emptyString
 

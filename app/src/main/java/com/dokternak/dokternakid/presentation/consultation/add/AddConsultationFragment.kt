@@ -115,8 +115,8 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
                 }
                 is ApiResponse.Success -> {
                     showLoadingResult(false)
-                    showCustomToast(getString(R.string.message_consultation_sent))
                     findNavController().popBackStack()
+                    showCustomToast(result.data)
                 }
                 is ApiResponse.Error -> {
                     showLoadingResult(false)

@@ -1,9 +1,9 @@
-package com.dokternak.dokternakid.domain.article.consultation.mapper
+package com.dokternak.dokternakid.domain.consultation.mapper
 
 import com.dokternak.dokternakid.data.consultation.model.ConsultationHistoryItem
 import com.dokternak.dokternakid.data.consultation.model.ConsultationItem
-import com.dokternak.dokternakid.domain.article.consultation.model.Consultation
-import com.dokternak.dokternakid.domain.article.consultation.model.ConsultationHistory
+import com.dokternak.dokternakid.domain.consultation.model.Consultation
+import com.dokternak.dokternakid.domain.consultation.model.ConsultationHistory
 import com.dokternak.dokternakid.utils.ext.emptyString
 import com.dokternak.dokternakid.utils.ext.orZero
 

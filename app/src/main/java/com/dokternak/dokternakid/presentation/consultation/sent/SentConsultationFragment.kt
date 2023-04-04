@@ -3,11 +3,15 @@ package com.dokternak.dokternakid.presentation.consultation.sent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentSentConsultationBinding
-import com.dokternak.dokternakid.presentation.consultation.ConsultationAdapter
+import com.dokternak.dokternakid.domain.consultation.model.Consultation
+import com.dokternak.dokternakid.presentation.consultation.adapter.ConsultationAdapter
+import com.dokternak.dokternakid.presentation.consultation.ConsultationFragmentDirections
+import com.dokternak.dokternakid.utils.ConstVal.SENT_CONSULTATION
 import com.dokternak.dokternakid.utils.ext.gone
 import com.dokternak.dokternakid.utils.ext.hideLoading
 import com.dokternak.dokternakid.utils.ext.show
@@ -35,7 +39,6 @@ class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>()
     }
 
     override fun initProcess() {
-        sentConsultationViewModel.getSentConsultations()
     }
 
     override fun initObservers() {
@@ -47,7 +50,9 @@ class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>()
                 is ApiResponse.Success -> {
                     hideLoading(binding.pbConsultation)
                     isEmpty(false)
-                    val consultationAdapter = ConsultationAdapter()
+                    val consultationAdapter = ConsultationAdapter {
+                        toDetailConsultation(it)
+                    }
                     consultationAdapter.setData(result.data)
                     binding.rvSentConsultation.apply {
                         layoutManager = LinearLayoutManager(context)
@@ -65,6 +70,11 @@ class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>()
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        sentConsultationViewModel.getSentConsultations()
+    }
+
     private fun isEmpty(empty: Boolean) {
         if (empty) {
             binding.apply {
@@ -75,6 +85,14 @@ class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>()
                 layoutEmpty.gone()
             }
         }
+    }
+
+    private fun toDetailConsultation(consultation: Consultation) {
+        val navigateToDetail = ConsultationFragmentDirections.actionConsultationFragmentToDetailConsultationFragment(
+            consultation.consultationId.toString(),
+            SENT_CONSULTATION
+        )
+        findNavController().navigate(navigateToDetail)
     }
 
 }

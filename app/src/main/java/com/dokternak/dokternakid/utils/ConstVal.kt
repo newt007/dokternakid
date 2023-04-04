@@ -38,4 +38,7 @@ object ConstVal {
 
     val tabTitle = listOf("Konsultasi Masuk", "Konsultasi Terkirim")
 
+    const val INBOX_CONSULTATION = "inbox"
+    const val SENT_CONSULTATION = "sent"
+
 }

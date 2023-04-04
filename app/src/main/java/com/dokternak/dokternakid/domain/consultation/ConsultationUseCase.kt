@@ -1,11 +1,11 @@
-package com.dokternak.dokternakid.data.consultation
+package com.dokternak.dokternakid.domain.consultation
 
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.domain.consultation.model.Consultation
 import com.dokternak.dokternakid.domain.consultation.model.ConsultationHistory
 import kotlinx.coroutines.flow.Flow
 
-interface ConsultationRepository {
+interface ConsultationUseCase {
 
     fun addNewConsultation(
         farmerId: String,

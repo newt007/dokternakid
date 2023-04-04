@@ -135,6 +135,20 @@
     <fragment
         android:id="@+id/consultationFragment"
         android:name="com.dokternak.dokternakid.presentation.consultation.ConsultationFragment"
-        android:label="ConsultationFragment" />
+        android:label="ConsultationFragment" >
+        <action
+            android:id="@+id/action_consultationFragment_to_detailConsultationFragment"
+            app:destination="@id/detailConsultationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailConsultationFragment"
+        android:name="com.dokternak.dokternakid.presentation.consultation.detail.DetailConsultationFragment"
+        android:label="DetailConsultationFragment" >
+        <argument android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

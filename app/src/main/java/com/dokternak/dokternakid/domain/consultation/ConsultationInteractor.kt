@@ -1,9 +1,9 @@
-package com.dokternak.dokternakid.domain.article.consultation
+package com.dokternak.dokternakid.domain.consultation
 
 import com.dokternak.dokternakid.data.consultation.ConsultationRepository
 import com.dokternak.dokternakid.data.lib.ApiResponse
-import com.dokternak.dokternakid.domain.article.consultation.model.Consultation
-import com.dokternak.dokternakid.domain.article.consultation.model.ConsultationHistory
+import com.dokternak.dokternakid.domain.consultation.model.Consultation
+import com.dokternak.dokternakid.domain.consultation.model.ConsultationHistory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -21,7 +21,7 @@ class ConsultationInteractor(
         complaint: String,
         sendStatus: String,
         date: String
-    ): Flow<ApiResponse<Consultation>> {
+    ): Flow<ApiResponse<String>> {
         return repository.addNewConsultation(
             farmerId,
             doctorId,
@@ -41,6 +41,26 @@ class ConsultationInteractor(
 
     override fun getInboxConsultations(): Flow<ApiResponse<List<ConsultationHistory>>> {
         return repository.getInboxConsultations()
+            .flowOn(Dispatchers.IO)
+    }
+
+    override fun getInboxConsultationDetail(historyId: String): Flow<ApiResponse<ConsultationHistory>> {
+        return repository.getInboxConsultationDetail(historyId)
+            .flowOn(Dispatchers.IO)
+    }
+
+    override fun getSentConsultationDetail(consultId: String): Flow<ApiResponse<Consultation>> {
+        return repository.getSentConsultationDetail(consultId)
+            .flowOn(Dispatchers.IO)
+    }
+
+    override fun deleteSentConsultation(consultId: String): Flow<ApiResponse<String>> {
+        return repository.deleteSentConsultation(consultId)
+            .flowOn(Dispatchers.IO)
+    }
+
+    override fun deleteInboxConsultation(consultId: String): Flow<ApiResponse<String>> {
+        return repository.deleteInboxConsultation(consultId)
             .flowOn(Dispatchers.IO)
     }
 

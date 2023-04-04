@@ -3,6 +3,7 @@ package com.dokternak.dokternakid.di
 import com.dokternak.dokternakid.presentation.article.detail.ArticleDetailViewModel
 import com.dokternak.dokternakid.presentation.article.detail.ArticleViewModel
 import com.dokternak.dokternakid.presentation.consultation.add.AddConsultationViewModel
+import com.dokternak.dokternakid.presentation.consultation.detail.DetailConsultationViewModel
 import com.dokternak.dokternakid.presentation.consultation.inbox.InboxConsultationViewModel
 import com.dokternak.dokternakid.presentation.consultation.sent.SentConsultationViewModel
 import com.dokternak.dokternakid.presentation.home.HomeViewModel
@@ -33,6 +34,7 @@ val viewModelModule = module {
     viewModel { AddConsultationViewModel(get(), get()) }
     viewModel { SentConsultationViewModel(get()) }
     viewModel { InboxConsultationViewModel(get()) }
+    viewModel { DetailConsultationViewModel(get()) }
 
     viewModel { PuskeswanViewModel(get()) }
     viewModel { PuskeswanDetailViewModel(get()) }

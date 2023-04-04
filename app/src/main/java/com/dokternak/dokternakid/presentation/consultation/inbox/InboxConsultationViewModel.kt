@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dokternak.dokternakid.data.lib.ApiResponse
-import com.dokternak.dokternakid.domain.article.consultation.ConsultationUseCase
-import com.dokternak.dokternakid.domain.article.consultation.model.ConsultationHistory
+import com.dokternak.dokternakid.domain.consultation.ConsultationUseCase
+import com.dokternak.dokternakid.domain.consultation.model.ConsultationHistory
 import kotlinx.coroutines.launch
 
 class InboxConsultationViewModel(

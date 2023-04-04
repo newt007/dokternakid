@@ -1,15 +1,16 @@
-package com.dokternak.dokternakid.presentation.consultation
+package com.dokternak.dokternakid.presentation.consultation.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dokternak.dokternakid.databinding.ItemConsultationBinding
-import com.dokternak.dokternakid.domain.article.consultation.model.Consultation
+import com.dokternak.dokternakid.domain.consultation.model.Consultation
 import com.dokternak.dokternakid.utils.ConstVal.OFFICER_IMAGE_BASE_URL
+import com.dokternak.dokternakid.utils.ext.click
 import com.dokternak.dokternakid.utils.ext.setImageUrl
 
-class ConsultationAdapter : RecyclerView.Adapter<ConsultationAdapter.ConsultationViewHolder>() {
+class ConsultationAdapter(private val onClick: (Consultation) -> Unit) : RecyclerView.Adapter<ConsultationAdapter.ConsultationViewHolder>() {
 
     private val consultationList = mutableListOf<Consultation>()
 
@@ -22,14 +23,14 @@ class ConsultationAdapter : RecyclerView.Adapter<ConsultationAdapter.Consultatio
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ConsultationAdapter.ConsultationViewHolder {
+    ): ConsultationViewHolder {
         val binding =
             ItemConsultationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ConsultationViewHolder(binding)
     }
 
     override fun onBindViewHolder(
-        holder: ConsultationAdapter.ConsultationViewHolder,
+        holder: ConsultationViewHolder,
         position: Int
     ) {
         consultationList[position].let {
@@ -47,6 +48,10 @@ class ConsultationAdapter : RecyclerView.Adapter<ConsultationAdapter.Consultatio
                 tvDoctorName.text = consultation.doctorName
                 tvComplaint.text = consultation.complaint
                 tvDate.text = consultation.date
+
+                root.click {
+                    onClick.invoke(consultation)
+                }
             }
         }
     }

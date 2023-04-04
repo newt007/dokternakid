@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentInboxConsultationBinding
-import com.dokternak.dokternakid.presentation.consultation.ConsultationHistoryAdapter
+import com.dokternak.dokternakid.presentation.consultation.adapter.ConsultationHistoryAdapter
 import com.dokternak.dokternakid.utils.ext.gone
 import com.dokternak.dokternakid.utils.ext.hideLoading
 import com.dokternak.dokternakid.utils.ext.show

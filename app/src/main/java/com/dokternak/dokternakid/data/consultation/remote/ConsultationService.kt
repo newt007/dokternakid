@@ -3,11 +3,7 @@ package com.dokternak.dokternakid.data.consultation.remote
 import com.dokternak.dokternakid.data.consultation.model.ConsultationHistoryItem
 import com.dokternak.dokternakid.data.consultation.model.ConsultationItem
 import com.dokternak.dokternakid.data.lib.BaseResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ConsultationService {
 
@@ -33,5 +29,26 @@ interface ConsultationService {
     suspend fun getInboxConsultation(
         @Path("id") id: String
     ): BaseResponse<List<ConsultationHistoryItem>>
+
+    @GET("api_konsultasi/detailmasuk/{id}")
+    suspend fun getInboxConsultationDetail(
+        @Path("id") historyId: String
+    ): BaseResponse<ConsultationHistoryItem>
+
+    @GET("api_konsultasi/detailterkirim/{id}")
+    suspend fun getSentConsultationDetail(
+        @Path("id") consultId: String
+    ): BaseResponse<ConsultationItem>
+
+    @DELETE("api_konsultasi/{id_konsultasi}/hapusterkirim")
+    suspend fun deleteSentConsultation(
+        @Path("id_konsultasi") consultationId: String
+    ): BaseResponse<ConsultationItem>
+
+    @DELETE("api_konsultasi/{id_konsultasi}/hapusmasuk")
+    suspend fun deleteInboxConsultation(
+        @Path("id_konsultasi") consultationId: String
+    ): BaseResponse<ConsultationItem>
+
 
 }
