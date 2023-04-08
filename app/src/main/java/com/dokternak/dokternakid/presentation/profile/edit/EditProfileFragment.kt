@@ -9,6 +9,9 @@ import com.dokternak.dokternakid.R
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentEditProfileBinding
+import com.dokternak.dokternakid.domain.membership.model.User
+import com.dokternak.dokternakid.utils.BundleKeys
+import com.dokternak.dokternakid.utils.ConstVal
 import com.dokternak.dokternakid.utils.PreferenceManager
 import com.dokternak.dokternakid.utils.ext.click
 import com.dokternak.dokternakid.utils.ext.gone
@@ -70,7 +73,9 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>() {
                 }
                 is ApiResponse.Success -> {
                     isLoading(false)
-                    findNavController().popBackStack()
+                    sendResult(result.data)
+                    showCustomToast(getString(R.string.message_edit_profile_success))
+                    findNavController().navigateUp()
                 }
                 is ApiResponse.Error -> {
                     isLoading(false)
@@ -144,6 +149,17 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>() {
                 bgDimmer.gone()
             }
         }
+    }
+
+    private fun sendResult(user: User) {
+        val bundle = Bundle().apply {
+            putString(BundleKeys.BUNDLE_NAME, user.name)
+            putString(BundleKeys.BUNDLE_EMAIL, user.email)
+            putString(BundleKeys.BUNDLE_GENDER, user.gender)
+            putString(BundleKeys.BUNDLE_ADDRESS, user.address)
+            putString(BundleKeys.BUNDLE_PHONE, user.phoneNumber)
+        }
+        parentFragmentManager.setFragmentResult(ConstVal.EDIT_REQUEST_KEY, bundle)
     }
 
 }

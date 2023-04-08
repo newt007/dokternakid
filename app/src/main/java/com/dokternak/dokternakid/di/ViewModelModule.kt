@@ -10,6 +10,7 @@ import com.dokternak.dokternakid.presentation.home.HomeViewModel
 import com.dokternak.dokternakid.presentation.login.LoginViewModel
 import com.dokternak.dokternakid.presentation.officer.OfficerViewModel
 import com.dokternak.dokternakid.presentation.officer.detail.OfficerDetailViewModel
+import com.dokternak.dokternakid.presentation.officer.search.SearchOfficerViewModel
 import com.dokternak.dokternakid.presentation.profile.edit.EditProfileViewModel
 import com.dokternak.dokternakid.presentation.puskeswan.PuskeswanViewModel
 import com.dokternak.dokternakid.presentation.puskeswan.detail.PuskeswanDetailViewModel
@@ -23,6 +24,7 @@ val viewModelModule = module {
 
     viewModel { OfficerViewModel(get()) }
     viewModel { OfficerDetailViewModel(get()) }
+    viewModel { SearchOfficerViewModel(get()) }
 
     viewModel { ArticleDetailViewModel(get()) }
     viewModel { ArticleViewModel(get()) }

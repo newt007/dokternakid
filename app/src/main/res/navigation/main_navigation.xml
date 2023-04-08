@@ -111,6 +111,9 @@
         <argument
             android:name="officer"
             app:argType="com.dokternak.dokternakid.domain.officer.model.Officer" />
+        <action
+            android:id="@+id/action_addConsultationFragment_to_searchOfficerFragment"
+            app:destination="@id/searchOfficerFragment" />
     </fragment>
     <fragment
         android:id="@+id/puskeswanFragment"
@@ -139,6 +142,9 @@
         <action
             android:id="@+id/action_consultationFragment_to_detailConsultationFragment"
             app:destination="@id/detailConsultationFragment" />
+        <action
+            android:id="@+id/action_consultationFragment_to_addConsultationFragment"
+            app:destination="@id/addConsultationFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailConsultationFragment"
@@ -150,5 +156,9 @@
             android:name="type"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/searchOfficerFragment"
+        android:name="com.dokternak.dokternakid.presentation.officer.search.SearchOfficerFragment"
+        android:label="SearchOfficerFragment" />
 
 </navigation>

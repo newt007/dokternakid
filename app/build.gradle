@@ -6,15 +6,26 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+ext {
+    // App version
+    versionMajor = 1    // library update, major UI/feature change
+    versionMinor = 0    // minor UI/feature change
+    patchNumber = 1     // bugfix
+    buildNumber = 0
+}
+
 android {
     compileSdk 33
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
     defaultConfig {
         applicationId "com.dokternak.dokternakid"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode generateVersionCode()
+        versionName generateVersionName()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,13 +55,13 @@ android {
     flavorDimensions "env"
     productFlavors {
         dev {
-            buildConfigField("String", "BASE_URL", '"https://www.dokternak.id/api/"')
+            buildConfigField("String", "BASE_URL", properties.getProperty("base_url"))
             dimension "env"
             versionCode 1
             versionName "1.0"
         }
         prod {
-            buildConfigField("String", "BASE_URL", '"https://base_url.com"')
+            buildConfigField("String", "BASE_URL", properties.getProperty("base_url"))
             dimension "env"
             versionCode 1
             versionName "1.0"
@@ -110,4 +121,12 @@ dependencies {
     // Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+}
+
+private Integer generateVersionCode() {
+    return versionMajor * 1000000 + versionMinor * 10000 + patchNumber * 100 + buildNumber
+}
+
+private String generateVersionName() {
+    return "${versionMajor}.${versionMinor}.${patchNumber}"
 }

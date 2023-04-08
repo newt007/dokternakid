@@ -3,19 +3,20 @@ package com.dokternak.dokternakid.presentation.consultation.sent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dokternak.dokternakid.R
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentSentConsultationBinding
 import com.dokternak.dokternakid.domain.consultation.model.Consultation
-import com.dokternak.dokternakid.presentation.consultation.adapter.ConsultationAdapter
 import com.dokternak.dokternakid.presentation.consultation.ConsultationFragmentDirections
+import com.dokternak.dokternakid.presentation.consultation.adapter.ConsultationAdapter
+import com.dokternak.dokternakid.utils.BundleKeys.BUNDLE_REFRESH
+import com.dokternak.dokternakid.utils.ConstVal
 import com.dokternak.dokternakid.utils.ConstVal.SENT_CONSULTATION
-import com.dokternak.dokternakid.utils.ext.gone
-import com.dokternak.dokternakid.utils.ext.hideLoading
-import com.dokternak.dokternakid.utils.ext.show
-import com.dokternak.dokternakid.utils.ext.showLoading
+import com.dokternak.dokternakid.utils.ext.*
 import org.koin.android.ext.android.inject
 
 class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>() {
@@ -30,15 +31,29 @@ class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>()
         FragmentSentConsultationBinding.inflate(inflater, container, false)
 
     override fun initIntent() {
+        setFragmentResultListener(
+            ConstVal.REFRESH_REQUEST_KEY,
+        ) { _, result ->
+            val key = result.getString(BUNDLE_REFRESH)
+            if (key == "refresh") {
+                sentConsultationViewModel.getSentConsultations()
+            }
+        }
     }
 
     override fun initUI() {
     }
 
     override fun initAction() {
+        binding.apply {
+            fabNewConsultation.click {
+                findNavController().navigate(R.id.action_consultationFragment_to_addConsultationFragment)
+            }
+        }
     }
 
     override fun initProcess() {
+        sentConsultationViewModel.getSentConsultations()
     }
 
     override fun initObservers() {
@@ -70,18 +85,15 @@ class SentConsultationFragment : BaseFragment<FragmentSentConsultationBinding>()
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        sentConsultationViewModel.getSentConsultations()
-    }
-
     private fun isEmpty(empty: Boolean) {
         if (empty) {
             binding.apply {
+                rvSentConsultation.gone()
                 layoutEmpty.show()
             }
         } else {
             binding.apply {
+                rvSentConsultation.show()
                 layoutEmpty.gone()
             }
         }

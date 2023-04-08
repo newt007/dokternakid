@@ -79,4 +79,7 @@
     <string name="label_animal_name_is">Nama Hewan : %1$s</string>
     <string name="message_delete_consultation_confirmation">Apakah anda yakin ingin menghapus konsultasi ini ?</string>
     <string name="message_consultation_deleted">Konsultasi berhasil dihapus</string>
+    <string name="message_search_not_found">Tidak ada hasil pencarian dengan kata kunci tersebut</string>
+    <string name="desc_fab_to_add_new_consultation">fabToNewConsultation</string>
+    <string name="message_edit_profile_success">Update profil berhasil</string>
 </resources>

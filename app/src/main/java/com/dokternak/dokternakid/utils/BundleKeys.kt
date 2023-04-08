@@ -2,14 +2,13 @@ package com.dokternak.dokternakid.utils
 
 object BundleKeys {
 
-    const val KEY_USERNAME = "key.username"
-    const val KEY_FOOD_CODE = "key.foodcode"
-    const val KEY_RAW_STRING = "key.rawstring"
+    const val BUNDLE_OFFICER = "bundle.officer"
+    const val BUNDLE_REFRESH = "bundle.refresh"
 
-    const val KEY_TITLE = "key.title"
-    const val KEY_DESC = "key.desc"
-    const val KEY_IMAGE_RES = "key.imageres"
-    const val KEY_TEXT = "key.text"
-    const val KEY_ON_CLICK = "key.onclick"
+    const val BUNDLE_EMAIL = "bundle.email"
+    const val BUNDLE_NAME = "bundle.name"
+    const val BUNDLE_PHONE = "bundle.phone"
+    const val BUNDLE_GENDER = "bundle.gender"
+    const val BUNDLE_ADDRESS = "bundle.address"
 
 }

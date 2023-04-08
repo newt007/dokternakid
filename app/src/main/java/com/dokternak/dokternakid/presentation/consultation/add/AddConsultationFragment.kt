@@ -1,6 +1,7 @@
 package com.dokternak.dokternakid.presentation.consultation.add
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,18 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.dokternak.dokternakid.R
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentAddConsultationBinding
 import com.dokternak.dokternakid.domain.officer.model.Officer
+import com.dokternak.dokternakid.utils.BundleKeys.BUNDLE_OFFICER
+import com.dokternak.dokternakid.utils.BundleKeys.BUNDLE_REFRESH
+import com.dokternak.dokternakid.utils.ConstVal.OFFICER_REQUEST_KEY
+import com.dokternak.dokternakid.utils.ConstVal.REFRESH_REQUEST_KEY
 import com.dokternak.dokternakid.utils.PreferenceManager
 import com.dokternak.dokternakid.utils.ext.*
 import org.koin.android.ext.android.inject
@@ -36,13 +43,22 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
     ): FragmentAddConsultationBinding =
         FragmentAddConsultationBinding.inflate(inflater, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun initIntent() {
         officer = arguments?.getParcelable("officer")
+
+        setFragmentResultListener(
+            OFFICER_REQUEST_KEY,
+        ) { _, result ->
+            officer = result.getParcelable(BUNDLE_OFFICER)
+
+            binding.edtOfficerName.setText(officer?.doctorName.toString())
+        }
     }
 
     override fun initUI() {
         binding.edtOfficerName.apply {
-            setText(officer?.doctorName.toString())
+            setText(officer?.doctorName ?: "")
             disable()
         }
         binding.rbLiveStock.isChecked = true
@@ -56,7 +72,10 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
             btnSendConsultation.click {
                 addNewConsultation()
             }
-            spinnerAnimalType.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            btnSearch.click {
+                findNavController().navigate(R.id.action_addConsultationFragment_to_searchOfficerFragment)
+            }
+            spinnerAnimalType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -109,13 +128,14 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
             }
         }
         addConsultationViewModel.addNewConsultationResult.observe(viewLifecycleOwner) { result ->
-            when(result) {
+            when (result) {
                 is ApiResponse.Loading -> {
                     showLoadingResult(true)
                 }
                 is ApiResponse.Success -> {
                     showLoadingResult(false)
-                    findNavController().popBackStack()
+                    sendResult()
+                    findNavController().navigateUp()
                     showCustomToast(result.data)
                 }
                 is ApiResponse.Error -> {
@@ -142,10 +162,10 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
 
         val formattedCalendar = SimpleDateFormat("yyyy-MM-dd")
         val date = formattedCalendar.format(calendar.time)
-        
+
         when {
             officerName.isEmpty() -> {
-                binding.edtOfficerName.apply { 
+                binding.edtOfficerName.apply {
                     error = context.getString(R.string.warning_officer_name_must_not_empty)
                     requestFocus()
                 }
@@ -161,7 +181,8 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
                     error = context.getString(R.string.warning_complaint_must_not_empty)
                     requestFocus()
                 }
-            } else -> {
+            }
+            else -> {
                 addConsultationViewModel.addNewConsultation(
                     farmerId,
                     officer?.doctorId.toString(),
@@ -202,6 +223,13 @@ class AddConsultationFragment : BaseFragment<FragmentAddConsultationBinding>() {
                 bgDimmer.gone()
             }
         }
+    }
+
+    private fun sendResult() {
+        val bundle = Bundle().apply {
+            putString(BUNDLE_REFRESH, "refresh")
+        }
+        parentFragmentManager.setFragmentResult(REFRESH_REQUEST_KEY, bundle)
     }
 
 }

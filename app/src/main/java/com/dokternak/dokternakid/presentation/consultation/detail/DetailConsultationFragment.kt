@@ -8,6 +8,8 @@ import com.dokternak.dokternakid.R
 import com.dokternak.dokternakid.base.BaseFragment
 import com.dokternak.dokternakid.data.lib.ApiResponse
 import com.dokternak.dokternakid.databinding.FragmentDetailConsultationBinding
+import com.dokternak.dokternakid.utils.BundleKeys
+import com.dokternak.dokternakid.utils.ConstVal
 import com.dokternak.dokternakid.utils.ConstVal.INBOX_CONSULTATION
 import com.dokternak.dokternakid.utils.ConstVal.OFFICER_IMAGE_BASE_URL
 import com.dokternak.dokternakid.utils.ConstVal.SENT_CONSULTATION
@@ -84,6 +86,7 @@ class DetailConsultationFragment : BaseFragment<FragmentDetailConsultationBindin
             when (result) {
                 is ApiResponse.Success -> {
                     showCustomToast(getString(R.string.message_consultation_deleted))
+                    sendResult()
                     findNavController().popBackStack()
                 }
                 is ApiResponse.Error -> {
@@ -112,6 +115,13 @@ class DetailConsultationFragment : BaseFragment<FragmentDetailConsultationBindin
                 }
             )
         }
+    }
+
+    private fun sendResult() {
+        val bundle = Bundle().apply {
+            putString(BundleKeys.BUNDLE_REFRESH, "refresh")
+        }
+        parentFragmentManager.setFragmentResult(ConstVal.REFRESH_REQUEST_KEY, bundle)
     }
 
 }

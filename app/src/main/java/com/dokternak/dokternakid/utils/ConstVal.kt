@@ -41,4 +41,8 @@ object ConstVal {
     const val INBOX_CONSULTATION = "inbox"
     const val SENT_CONSULTATION = "sent"
 
+    const val OFFICER_REQUEST_KEY = "101"
+    const val REFRESH_REQUEST_KEY = "102"
+    const val EDIT_REQUEST_KEY = "103"
+
 }

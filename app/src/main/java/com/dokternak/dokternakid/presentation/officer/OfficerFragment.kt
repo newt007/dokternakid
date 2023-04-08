@@ -96,9 +96,11 @@ class OfficerFragment : BaseFragment<FragmentOfficerBinding>() {
         if (empty) {
             binding.apply {
                 rvOfficer.gone()
+                layoutEmpty.show()
             }
         } else {
             binding.rvOfficer.show()
+            binding.layoutEmpty.gone()
         }
     }
 
